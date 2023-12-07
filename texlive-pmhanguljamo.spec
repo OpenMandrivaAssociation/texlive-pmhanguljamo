@@ -1,6 +1,6 @@
 Name:		texlive-pmhanguljamo
-Version:	64361
-Release:	2
+Version:	66361
+Release:	1
 Summary:	Poor man's Hangul Jamo input method
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/pmhanguljamo
