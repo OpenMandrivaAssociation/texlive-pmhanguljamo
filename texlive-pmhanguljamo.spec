@@ -1,5 +1,5 @@
 Name:		texlive-pmhanguljamo
-Version:	66361
+Version:	71464
 Release:	1
 Summary:	Poor man's Hangul Jamo input method
 Group:		Publishing
