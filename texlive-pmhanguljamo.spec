@@ -1,39 +1,23 @@
-Name:		texlive-pmhanguljamo
-Version:	71464
-Release:	1
-Summary:	Poor man's Hangul Jamo input method
+%global tl_name pmhanguljamo
+%global tl_revision 78114
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	1.3
+Release:	%{tl_revision}.1
+Summary:	Poor mans Hangul Jamo input method
 Group:		Publishing
-URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/pmhanguljamo
+URL:		https://www.ctan.org/tex-archive/language/korean/pmhanguljamo
 License:	lppl1.3
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/pmhanguljamo.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/pmhanguljamo.doc.r%{version}.tar.xz
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/pmhanguljamo.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/pmhanguljamo.doc.r%{tl_revision}.tar.xz
 BuildArch:	noarch
-BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+BuildSystem:	texlive
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-This package provides a Hangul transliteration input method
-that allows to typeset Korean letters (Hangul) using the proper
-fonts. The name is derived from "Poor man's Hangul Jamo Input
-Method". The use of XeLaTeX is recommended. pdfTeX is not
-supported.
+This package provides a Hangul transliteration input method that allows
+to typeset Korean letters (Hangul) using the proper fonts. The name is
+derived from "Poor man's Hangul Jamo Input Method". The use of XeLaTeX
+is recommended. pdfTeX is not supported.
 
-%prep
-%autosetup -p1 -c -a1
-
-%build
-
-%install
-rm -rf tlpkg
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -a * %{buildroot}%{_texmfdistdir}
-
-%files
-%{_texmfdistdir}/tex/latex/pmhanguljamo
-%doc %{_texmfdistdir}/doc/latex/pmhanguljamo
-
-%post -p %{_sbindir}/texlive.post
-
-%postun
-[ "$1" -eq 0 ] && %{_sbindir}/texlive.post
